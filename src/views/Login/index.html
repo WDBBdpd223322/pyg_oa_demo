@@ -1,4 +1,21 @@
-<div>
-  {{ msg }}
-  <el-button>你好</el-button>
+<div class="content">
+  <div class="image">
+    <img src="@/assets/images/login.jpg" alt="">
+  </div>
+  <el-form
+    :model="loginForm"
+    :rules="rules"
+    ref="loginForm"
+    label-width="100px"
+    class="demo-ruleForm">
+    <el-form-item label="用户名" prop="username">
+      <el-input v-model="loginForm.username"></el-input>
+    </el-form-item>
+    <el-form-item label="密码" prop="password">
+      <el-input v-model="loginForm.password"></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary">立即登陆</el-button>
+    </el-form-item>
+  </el-form>
 </div>
