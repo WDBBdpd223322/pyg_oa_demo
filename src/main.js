@@ -2,8 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './routes/router'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import httpPlugin from '@/utils/http'
+
+import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/css/main.css'
 
 Vue.use(ElementUI)
 
