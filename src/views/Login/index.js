@@ -30,7 +30,8 @@ export default {
       const { data, meta: { status } } = await userLogin(this.loginForm)
       if (status === 200) {
         setToken(data.token)
-        this.$router.push('/home')
+        const redirect = this.$router.currentRoute.query.redirect || '/'
+        this.$router.push(redirect)
       }
     }
   }
