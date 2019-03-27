@@ -6,17 +6,27 @@ export default {
   data () {
     return {
       msg: '首页',
-      isCollapse: false
+      isCollapse: false,
+      routePath: ''
     }
   },
   methods: {
     collapse () {
       this.isCollapse = !this.isCollapse
+    },
+    getRoutePath () {
+      this.routePath = this.$route.path
     }
   },
   components: {
     Aside,
     Header,
     Main
+  },
+  updated () {
+    this.getRoutePath()
+  },
+  created () {
+    this.getRoutePath()
   }
 }

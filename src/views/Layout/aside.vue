@@ -4,6 +4,7 @@
     background-color="#545c64"
     :router="true"
     :unique-opened="true"
+    :default-active="routePath"
     :collapse="isCollapse"
     :collapse-transition="true">
     <el-submenu index="1">
@@ -93,7 +94,7 @@ export default {
   data () {
     return {}
   },
-  props: ['isCollapse']
+  props: ['isCollapse', 'routePath']
 }
 </script>
 
