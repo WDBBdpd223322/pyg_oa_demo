@@ -73,7 +73,10 @@
       </el-table>
     </el-row>
     <el-row class="pagination">
-      <Pagination />
+      <Pagination
+        :total="total"
+        @pageChange="pageChange"
+        @sizeChange="sizeChange"/>
     </el-row>
   </el-row>
 </div>

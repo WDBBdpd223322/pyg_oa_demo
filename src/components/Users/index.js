@@ -7,9 +7,10 @@ export default {
       userList: [],
       userListInfo: {
         pagenum: 1,
-        pagesize: 10,
+        pagesize: 2,
         query: ''
-      }
+      },
+      total: 10
     }
   },
   methods: {
@@ -17,7 +18,16 @@ export default {
       const { data, meta: { status } } = await Users.getUserList(this.userListInfo)
       if (status === 200) {
         this.userList = data.users
+        this.total = data.total
       }
+    },
+    pageChange (page) {
+      this.userListInfo.pagenum = page
+      this.getUserList()
+    },
+    sizeChange (size) {
+      this.userListInfo.pagesize = size
+      this.getUserList()
     }
   },
   components: {

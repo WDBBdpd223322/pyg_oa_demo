@@ -1,31 +1,19 @@
 <template>
   <el-pagination
-    @size-change="handleSizeChange"
-    @current-change="handleCurrentChange"
+    @size-change="size => { this.$emit('sizeChange', size) }"
+    @current-change="page => { this.$emit('pageChange', page) }"
     :current-page="1"
-    :page-sizes="[100, 200, 300, 400]"
-    :page-size="100"
+    :page-sizes="[2, 4, 8, 10]"
+    :page-size="2"
     layout="total, sizes, prev, pager, next, jumper"
-    :total="400">
+    :total="total">
   </el-pagination>
 </template>
 
 <script>
 export default {
   name: 'Pagination',
-  data () {
-    return {
-      msg: 'hello Vue!'
-    }
-  },
-  methods: {
-    handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
-    },
-    handleCurrentChange (val) {
-      console.log(`当前页: ${val}`)
-    }
-  }
+  props: ['total']
 }
 </script>
 
