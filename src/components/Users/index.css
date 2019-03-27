@@ -5,7 +5,8 @@
 }
 
 .el-row.content .table {
-  height: 400px;
+  max-height: 400px;
+  min-height: 145px;
   overflow: auto;
 }
 
