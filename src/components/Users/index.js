@@ -1,4 +1,5 @@
 import * as Users from '@/api/users'
+import Pagination from '@/components/Custom/Pagination'
 export default {
   name: 'Users',
   data () {
@@ -16,15 +17,11 @@ export default {
       const { data, meta: { status } } = await Users.getUserList(this.userListInfo)
       if (status === 200) {
         this.userList = data.users
-        console.log(data.users[0])
       }
-    },
-    handleSizeChange (val) {
-      console.log(`每页 ${val} 条`)
-    },
-    handleCurrentChange (val) {
-      console.log(`当前页: ${val}`)
     }
+  },
+  components: {
+    Pagination
   },
   created () {
     this.getUserList()
