@@ -4,8 +4,15 @@
   </el-row>
   <el-row class="box">
     <el-col :span="8">
-      <el-input placeholder="请输入内容" class="input-with-select">
-        <el-button slot="append" icon="el-icon-search"></el-button>
+      <el-input
+        placeholder="请输入内容"
+        class="input-with-select"
+        v-model="userListInfo.query"
+        @keyup.enter.native="query">
+        <el-button
+          slot="append"
+          icon="el-icon-search"
+          @click="query"></el-button>
       </el-input>
     </el-col>
     <el-col :span="4" :offset="2">

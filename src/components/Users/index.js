@@ -28,6 +28,10 @@ export default {
     sizeChange (size) {
       this.userListInfo.pagesize = size
       this.getUserList()
+    },
+    query () {
+      this.userListInfo.pagenum = 1
+      this.getUserList()
     }
   },
   components: {
