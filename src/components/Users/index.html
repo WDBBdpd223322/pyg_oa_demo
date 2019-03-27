@@ -1,8 +1,51 @@
-<div>
+<div class="container">
   <el-row class="box">
     <Breadcrumb levelTwo="用户管理" levelThree="用户列表"/>
   </el-row>
   <el-row class="box">
-    {{ msg }}
+    <el-col :span="8">
+      <el-input placeholder="请输入内容" class="input-with-select">
+        <el-button slot="append" icon="el-icon-search"></el-button>
+      </el-input>
+    </el-col>
+    <el-col :span="4" :offset="2">
+      <el-button type="info" round>添加用户</el-button>
+    </el-col>
+  </el-row>
+  <el-row class="box content">
+    <el-row class="table">
+      <el-table
+        :data="userList"
+        :border="true"
+        height="100%"
+        style="width: 100%">
+        <el-table-column
+          fixed
+          prop="date"
+          label="日期"
+          width="180">
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名"
+          width="180">
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址">
+        </el-table-column>
+      </el-table>
+    </el-row>
+    <el-row class="pagination">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="1"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400">
+      </el-pagination>
+    </el-row>
   </el-row>
 </div>

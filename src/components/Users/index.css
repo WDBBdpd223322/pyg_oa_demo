@@ -1,0 +1,17 @@
+.el-row.content {
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.el-row.content .table {
+  height: 400px;
+  overflow: auto;
+}
+
+.el-row.content .pagination {
+  flex: 1;
+  padding: 20px 0 10px;
+  display: flex;
+  align-items: center;
+}
