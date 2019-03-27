@@ -2,7 +2,7 @@ import Aside from '@/views/Layout/aside'
 import Header from '@/views/Layout/header'
 import Main from '@/views/Layout/main'
 export default {
-  name: 'home',
+  name: 'Home',
   data () {
     return {
       msg: '首页',

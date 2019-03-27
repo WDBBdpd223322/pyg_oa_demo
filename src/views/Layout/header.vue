@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  name: 'Header',
   data () {
     return {
       msg: 'hello Vue!'

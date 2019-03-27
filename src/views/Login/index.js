@@ -3,7 +3,7 @@ import { userLogin } from '@/api/login'
 import { setToken } from '@/utils/auth'
 
 export default {
-  name: 'login',
+  name: 'Login',
   data () {
     return {
       loginForm: {},
