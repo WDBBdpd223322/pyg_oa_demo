@@ -7,12 +7,10 @@
       <el-input
         placeholder="请输入内容"
         class="input-with-select"
-        v-model="userListInfo.query"
-        @keyup.enter.native="query">
+        v-model="query">
         <el-button
           slot="append"
-          icon="el-icon-search"
-          @click="query"></el-button>
+          icon="el-icon-search"></el-button>
       </el-input>
     </el-col>
     <el-col :span="4" :offset="2">
@@ -82,8 +80,8 @@
     <el-row class="pagination">
       <Pagination
         :total="total"
-        @pageChange="pageChange"
-        @sizeChange="sizeChange"/>
+        @pageChange="page => userListInfo.pagenum = page"
+        @sizeChange="size => userListInfo.pagesize = size"/>
     </el-row>
   </el-row>
 </div>

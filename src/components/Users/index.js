@@ -20,18 +20,25 @@ export default {
         this.userList = data.users
         this.total = data.total
       }
-    },
-    pageChange (page) {
-      this.userListInfo.pagenum = page
-      this.getUserList()
-    },
-    sizeChange (size) {
-      this.userListInfo.pagesize = size
-      this.getUserList()
-    },
-    query () {
-      this.userListInfo.pagenum = 1
-      this.getUserList()
+    }
+  },
+  watch: {
+    userListInfo: {
+      handler () {
+        this.getUserList()
+      },
+      deep: true
+    }
+  },
+  computed: {
+    query: {
+      get () {
+        return this.userListInfo.query
+      },
+      set (val) {
+        this.userListInfo.query = val
+        this.userListInfo.pagenum = 1
+      }
     }
   },
   components: {
