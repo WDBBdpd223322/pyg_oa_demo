@@ -20,6 +20,13 @@ export default {
         this.userList = data.users
         this.total = data.total
       }
+    },
+    async changeState (id, state) {
+      const { meta: { status, msg } } = await Users.changeState(id, !state)
+      if (status === 200) {
+        this.$message.success(msg)
+        this.getUserList()
+      }
     }
   },
   watch: {

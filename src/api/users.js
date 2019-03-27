@@ -9,3 +9,7 @@ export const getUserList = ({ pagenum = 1, pagesize = 2, query = '' }) => {
     }
   }).then(res => res.data)
 }
+
+export const changeState = (id, state) => {
+  return http.put(`/users/${id}/state/${state}`).then(res => res.data)
+}

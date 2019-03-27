@@ -55,6 +55,7 @@
           <template slot-scope="state">
             <el-switch
               :value="state.row.mg_state"
+              @change="changeState(state.row.id, state.row.mg_state)"
               active-color="#13ce66"
               inactive-color="#ff4949">
             </el-switch>
