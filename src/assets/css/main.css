@@ -13,3 +13,14 @@ a, img {
   height: 100%;
   display: block;
 }
+
+.el-row.box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.el-row.box:last-child {
+  margin-bottom: 0px;
+}

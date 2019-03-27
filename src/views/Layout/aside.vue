@@ -5,6 +5,7 @@
     :router="true"
     :unique-opened="true"
     :default-active="routePath"
+    text-color="#fff"
     :collapse="isCollapse"
     :collapse-transition="true">
     <el-submenu index="1">
