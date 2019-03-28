@@ -21,3 +21,11 @@ export const addUser = userInfo => {
 export const destroyUser = uId => {
   return http.delete(`/users/${uId}`).then(res => res.data)
 }
+
+export const getUserInfoById = id => {
+  return http.get(`/users/${id}`).then(res => res.data)
+}
+
+export const editUser = (id, userInfo) => {
+  return http.put(`/users/${id}`, userInfo).then(res => res.data)
+}

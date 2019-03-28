@@ -73,6 +73,11 @@ export default {
           this.userAddDialog = false
           this.$emit('add-success')
         }
+
+        if (status === 400) {
+          this.$message.error(msg)
+          this.userAddForm.username = ''
+        }
       })
     }
   }

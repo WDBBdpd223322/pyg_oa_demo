@@ -69,10 +69,20 @@
           min-width="140">
           <template slot-scope="item">
             <el-tooltip class="item" effect="dark" content="编辑" placement="left">
-              <el-button size="mini" type="primary" icon="el-icon-edit" circle></el-button>
+              <el-button
+                size="mini"
+                type="primary"
+                icon="el-icon-edit"
+                circle
+                @click="$refs.userEdit.showEditDialog(item.row.id)"></el-button>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">
-              <el-button size="mini" type="danger" icon="el-icon-delete" circle @click="userDestroy(item.row.id)"></el-button>
+              <el-button
+                size="mini"
+                type="danger"
+                icon="el-icon-delete"
+                circle
+                @click="userDestroy(item.row.id)"></el-button>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分配角色" placement="right">
               <el-button size="mini" type="success" icon="el-icon-check" circle></el-button>
@@ -93,4 +103,8 @@
   <user-add
     ref="userAdd"
     @add-success="getUserList"/>
+  <!-- 编辑用户信息 -->
+  <user-edit
+    ref="userEdit"
+    @edit-success="getUserList"/>
 </div>
