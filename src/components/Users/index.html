@@ -21,10 +21,14 @@
     </el-col>
   </el-row>
   <el-row class="box content">
-    <el-row class="table">
+    <el-card class="table">
       <el-table
         :data="userList"
         :border="true"
+        v-loading="userListLoading"
+        element-loading-text="用户列表正在加载"
+        element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0, 0, 0, 0.8)"
         min-height="100%"
         min-width="100%">
         <el-table-column
@@ -57,6 +61,7 @@
           width="70">
           <template slot-scope="state">
             <el-switch
+              :disabled="state.row.id === 500"
               :value="state.row.mg_state"
               @change="changeState(state.row.id, state.row.mg_state)"
               active-color="#13ce66"
@@ -70,6 +75,7 @@
           <template slot-scope="item">
             <el-tooltip class="item" effect="dark" content="编辑" placement="left">
               <el-button
+                :disabled="item.row.id === 500"
                 size="mini"
                 type="primary"
                 icon="el-icon-edit"
@@ -78,14 +84,16 @@
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">
               <el-button
+                :disabled="item.row.id === 500"
                 size="mini"
                 type="danger"
                 icon="el-icon-delete"
                 circle
-                @click="userDestroy(item.row.id)"></el-button>
+                @click="userDestroy(item.row.id, item.row.username)"></el-button>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分配角色" placement="right">
               <el-button
+                :disabled="item.row.id === 500"
                 size="mini"
                 type="success"
                 icon="el-icon-check"
@@ -95,7 +103,7 @@
           </template>
         </el-table-column>
       </el-table>
-    </el-row>
+    </el-card>
     <el-row class="pagination">
       <Pagination
         :total="total"

@@ -19,6 +19,7 @@ a, img {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
+  box-shadow: 8px 8px 8px 0px #333;
 }
 
 .el-row.box:last-child {

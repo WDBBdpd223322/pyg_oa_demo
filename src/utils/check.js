@@ -1,5 +1,5 @@
 export const checkEmail = (rule, value, callback) => {
-  const mailReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/
+  const mailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
   if (!value) return callback()
   setTimeout(() => {
     if (mailReg.test(value)) {
