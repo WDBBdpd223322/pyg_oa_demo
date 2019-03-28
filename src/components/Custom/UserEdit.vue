@@ -33,6 +33,7 @@
 
 <script>
 import { checkEmail, checkMobile, checkRepeatPass } from '@/utils/check'
+import { addUser } from '@/api/users'
 export default {
   name: 'UserEdit',
   data () {
@@ -64,9 +65,14 @@ export default {
   },
   methods: {
     addUser () {
-      this.$refs.userEdit.validate(valid => {
+      this.$refs.userEdit.validate(async valid => {
         if (!valid) return this.$message.error('请完整填写表单')
-        console.log('准备添加用户')
+        const { meta: { status, msg } } = await addUser(this.userEditForm)
+        if (status === 201){
+          this.$message.success(msg)
+          this.userEditDialog = false
+          this.$emit('edit-success')
+        }
       })
     }
   }
