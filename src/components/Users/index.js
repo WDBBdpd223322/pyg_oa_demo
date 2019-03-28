@@ -2,6 +2,7 @@ import * as Users from '@/api/users'
 import Pagination from '@/components/Custom/Pagination'
 import UserAdd from '@/components/Custom/UserAdd'
 import UserEdit from '@/components/Custom/UserEdit'
+import UserRole from '@/components/Custom/UserRole'
 export default {
   name: 'Users',
   data () {
@@ -64,7 +65,8 @@ export default {
   components: {
     Pagination,
     UserAdd,
-    UserEdit
+    UserEdit,
+    UserRole
   },
   created () {
     this.getUserList()

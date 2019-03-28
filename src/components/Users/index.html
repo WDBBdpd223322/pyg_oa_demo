@@ -85,7 +85,12 @@
                 @click="userDestroy(item.row.id)"></el-button>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分配角色" placement="right">
-              <el-button size="mini" type="success" icon="el-icon-check" circle></el-button>
+              <el-button
+                size="mini"
+                type="success"
+                icon="el-icon-check"
+                circle
+                @click="$refs.userRole.showRoleDialog(item.row.id, item.row.username, item.row.role_name)"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -107,4 +112,8 @@
   <user-edit
     ref="userEdit"
     @edit-success="getUserList"/>
+  <!-- 分配用户角色 -->
+  <user-role
+    ref="userRole"
+    @role-success="getUserList"/>
 </div>

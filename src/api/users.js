@@ -29,3 +29,7 @@ export const getUserInfoById = id => {
 export const editUser = (id, userInfo) => {
   return http.put(`/users/${id}`, userInfo).then(res => res.data)
 }
+
+export const roleUser = (id, rid) => {
+  return http.put(`/users/${id}/role`, { rid }).then(res => res.data)
+}

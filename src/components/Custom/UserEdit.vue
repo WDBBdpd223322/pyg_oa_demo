@@ -1,7 +1,8 @@
 <template>
   <el-dialog
     title="编辑用户"
-    :visible.sync="userEditDialog">
+    :visible.sync="userEditDialog"
+    @close="$refs.userEdit.resetFields()">
     <el-form
       class="demo-ruleForm"
       :model="userEditForm"
