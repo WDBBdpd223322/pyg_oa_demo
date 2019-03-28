@@ -68,7 +68,7 @@ export default {
       this.$refs.userAdd.validate(async valid => {
         if (!valid) return this.$message.error('请完整填写表单')
         const { meta: { status, msg } } = await addUser(this.userAddForm)
-        if (status === 201){
+        if (status === 201) {
           this.$message.success(msg)
           this.userAddDialog = false
           this.$emit('add-success')

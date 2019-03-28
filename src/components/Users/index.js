@@ -18,12 +18,23 @@ export default {
     async getUserList () {
       const { data, meta: { status } } = await Users.getUserList(this.userListInfo)
       if (status === 200) {
+        if (this.userListInfo.pagenum !== 1 && data.users.length === 0) {
+          this.userListInfo.pagenum--
+          return this.getUserList()
+        }
         this.userList = data.users
         this.total = data.total
       }
     },
     async changeState (id, state) {
       const { meta: { status, msg } } = await Users.changeState(id, !state)
+      if (status === 200) {
+        this.$message.success(msg)
+        this.getUserList()
+      }
+    },
+    async userDestroy (uId) {
+      const { meta: { status, msg } } = await Users.destroyUser(uId)
       if (status === 200) {
         this.$message.success(msg)
         this.getUserList()

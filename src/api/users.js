@@ -17,3 +17,7 @@ export const changeState = (id, state) => {
 export const addUser = userInfo => {
   return http.post('/users', userInfo).then(res => res.data)
 }
+
+export const destroyUser = uId => {
+  return http.delete(`/users/${uId}`).then(res => res.data)
+}
