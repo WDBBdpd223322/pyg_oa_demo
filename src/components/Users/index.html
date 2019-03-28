@@ -14,7 +14,10 @@
       </el-input>
     </el-col>
     <el-col :span="4" :offset="2">
-      <el-button type="info" round>添加用户</el-button>
+      <el-button
+        type="info"
+        round
+        @click="$refs.userEdit.userEditDialog = true">添加用户</el-button>
     </el-col>
   </el-row>
   <el-row class="box content">
@@ -87,5 +90,6 @@
   </el-row>
 
   <!-- 添加用户信息 -->
-  <user-edit></user-edit>
+  <user-edit
+    ref="userEdit"/>
 </div>
