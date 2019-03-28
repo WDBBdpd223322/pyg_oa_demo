@@ -24,6 +24,6 @@ export const checkMobile = (rule, value, callback) => {
 
 export const checkRepeatPass = function (rule, value, callback) {
   if (!value) return callback(new Error('请再次输入密码'))
-  if (value !== this.userEditForm.password) return callback(new Error('两次密码不一致'))
+  if (value !== this.userAddForm.password) return callback(new Error('两次密码不一致'))
   callback()
 }

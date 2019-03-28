@@ -1,31 +1,31 @@
 <template>
   <el-dialog
     title="添加用户"
-    :visible.sync="userEditDialog"
-    @close="$refs.userEdit.resetFields()">
+    :visible.sync="userAddDialog"
+    @close="$refs.userAdd.resetFields()">
     <el-form
       class="demo-ruleForm"
-      :model="userEditForm"
-      ref="userEdit"
+      :model="userAddForm"
+      ref="userAdd"
       :rules="rules">
       <el-form-item label="用户名" prop="username">
-        <el-input v-model="userEditForm.username" autocomplete="off"></el-input>
+        <el-input v-model="userAddForm.username" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input v-model="userEditForm.password" autocomplete="off"></el-input>
+        <el-input v-model="userAddForm.password" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="确认密码" prop="repeatPass">
-        <el-input v-model="userEditForm.repeatPass" autocomplete="off"></el-input>
+        <el-input v-model="userAddForm.repeatPass" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="电话" prop="mobile">
-        <el-input v-model="userEditForm.mobile" autocomplete="off"></el-input>
+        <el-input v-model="userAddForm.mobile" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="邮箱" prop="email">
-        <el-input v-model="userEditForm.email" autocomplete="off"></el-input>
+        <el-input v-model="userAddForm.email" autocomplete="off"></el-input>
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
-      <el-button @click="userEditDialog = false">取 消</el-button>
+      <el-button @click="userAddDialog = false">取 消</el-button>
       <el-button type="primary" @click="addUser">确 定</el-button>
     </div>
   </el-dialog>
@@ -35,11 +35,11 @@
 import { checkEmail, checkMobile, checkRepeatPass } from '@/utils/check'
 import { addUser } from '@/api/users'
 export default {
-  name: 'UserEdit',
+  name: 'UserAdd',
   data () {
     return {
-      userEditDialog: false,
-      userEditForm: {},
+      userAddDialog: false,
+      userAddForm: {},
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
@@ -65,13 +65,13 @@ export default {
   },
   methods: {
     addUser () {
-      this.$refs.userEdit.validate(async valid => {
+      this.$refs.userAdd.validate(async valid => {
         if (!valid) return this.$message.error('请完整填写表单')
-        const { meta: { status, msg } } = await addUser(this.userEditForm)
+        const { meta: { status, msg } } = await addUser(this.userAddForm)
         if (status === 201){
           this.$message.success(msg)
-          this.userEditDialog = false
-          this.$emit('edit-success')
+          this.userAddDialog = false
+          this.$emit('add-success')
         }
       })
     }

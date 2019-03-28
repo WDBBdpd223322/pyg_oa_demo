@@ -17,7 +17,7 @@
       <el-button
         type="info"
         round
-        @click="$refs.userEdit.userEditDialog = true">添加用户</el-button>
+        @click="$refs.userAdd.userAddDialog = true">添加用户</el-button>
     </el-col>
   </el-row>
   <el-row class="box content">
@@ -90,7 +90,7 @@
   </el-row>
 
   <!-- 添加用户信息 -->
-  <user-edit
-    ref="userEdit"
-    @edit-success="getUserList"/>
+  <user-add
+    ref="userAdd"
+    @add-success="getUserList"/>
 </div>
