@@ -3,6 +3,46 @@
     <Breadcrumb levelTwo="权限管理" levelThree="权限列表"/>
   </el-row>
   <el-row class="box">
-    {{ msg }}
+    <el-card>
+      <el-table
+        :data="rightsList"
+        height="400"
+        :default-sort="{prop: 'level', order: 'ascendant'}"
+        highlight-current-row
+        v-loading="rightsListLoading"
+        element-loading-text="权限列表正在加载"
+        element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0, 0, 0, 0.8)">
+        <el-table-column
+          type="index"
+          width="50">
+        </el-table-column>
+        <el-table-column
+          prop="authName"
+          label="权限名称"
+          width="130">
+        </el-table-column>
+        <el-table-column
+          prop="id"
+          label="权限ID"
+          width="80">
+        </el-table-column>
+        <el-table-column
+          prop="path"
+          label="路径"
+          width="100">
+        </el-table-column>
+        <el-table-column
+          prop="level"
+          sortable
+          label="层级">
+          <template slot-scope="scope">
+            <el-tag size="mini" type="info" v-if="scope.row.level === '0'">一级</el-tag>
+            <el-tag size="mini" type="success" v-if="scope.row.level === '1'">二级</el-tag>
+            <el-tag size="mini" type="warning" v-if="scope.row.level === '2'">三级</el-tag>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-card>
   </el-row>
 </div>
